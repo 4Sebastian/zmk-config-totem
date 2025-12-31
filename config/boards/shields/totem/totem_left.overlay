@@ -19,7 +19,6 @@
 / {
   battery {
     compatible = "zmk,battery";
-    label = "BATTERY";
     io-channels = <&adc 7>;
   };
 };
@@ -32,10 +31,7 @@
 
   channel@7 {
     reg = <7>;
-    zephyr,gain = "ADC_GAIN_1_6";
-    zephyr,reference = "ADC_REF_INTERNAL";
-    zephyr,acquisition-time = <10>;
     zephyr,resolution = <12>;
-    zephyr,input-positive = <NRF_SAADC_INPUT_AIN7>;
+    zephyr,input-positive = <7>;
   };
 };
