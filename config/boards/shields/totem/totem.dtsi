@@ -10,7 +10,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
-        zmk,battery = &vbatt;
+        zmk,battery = &xiao_battery_voltage_divider;
     };
 
     vbatt: vbatt {
@@ -25,7 +25,7 @@
     	status = "okay";
     	compatible = "zmk,battery-voltage-divider";
     	label = "XIAO voltage divider";
-    	io-channels = <&adc 7>;
+    	io-channels = <&adc 2>;
     	output-ohms = <470000>;
     	full-ohms =  <1470000>;
     	power-gpios = <&gpio0 14 (GPIO_ACTIVE_LOW)>;
