@@ -32,13 +32,11 @@ xiao_battery_voltage_divider: vbatt {
 
     label = "XIAO voltage divider";
 
-    /* AIN7 on nRF52840 */
     io-channels = <&adc 7>;
 
-    /* Divider values */
     output-ohms = <470000>;
     full-ohms = <1470000>;
 
-    /* Enable divider (XIAO uses GPIO0 pin 14) */
-    power-gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
+    power-gpios = <&gpio0 14 (GPIO_ACTIVE_LOW)>;
 };
+
