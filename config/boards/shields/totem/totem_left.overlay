@@ -24,3 +24,7 @@
         full-ohms = <2000000>;
     };
 };
+
+&adc {
+    status = "okay";
+};
