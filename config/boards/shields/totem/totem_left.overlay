@@ -17,14 +17,28 @@
 };
 
 / {
-    battery {
-        compatible = "zmk,battery-voltage-divider";
-        io-channels = <&adc 7>;
-        output-ohms = <1000000>;
-        full-ohms = <2000000>;
+    chosen {
+        zmk,battery = &xiao_battery_voltage_divider;
     };
 };
 
 &adc {
     status = "okay";
+};
+
+xiao_battery_voltage_divider: vbatt {
+    compatible = "zmk,battery-voltage-divider";
+    status = "okay";
+
+    label = "XIAO voltage divider";
+
+    /* AIN7 on nRF52840 */
+    io-channels = <&adc 7>;
+
+    /* Divider values */
+    output-ohms = <470000>;
+    full-ohms = <1470000>;
+
+    /* Enable divider (XIAO uses GPIO0 pin 14) */
+    power-gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
 };
