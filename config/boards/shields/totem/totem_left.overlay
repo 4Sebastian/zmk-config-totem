@@ -16,27 +16,3 @@
         ;
 };
 
-/ {
-  battery {
-    compatible = "zmk,battery";
-    io-channels = <&adc 7>;
-  };
-};
-
-&adc {
-  status = "okay";
-
-  #address-cells = <1>;
-  #size-cells = <0>;
-
-  channel@7 {
-    reg = <7>;
-
-    /* REQUIRED by nordic,nrf-saadc */
-    zephyr,gain = "ADC_GAIN_1_6";
-    zephyr,reference = "ADC_REF_INTERNAL";
-    zephyr,acquisition-time = <10>;
-    zephyr,resolution = <12>;
-    zephyr,input-positive = <7>;
-  };
-};
