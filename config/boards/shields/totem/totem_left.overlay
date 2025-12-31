@@ -15,3 +15,27 @@
         , <&xiao_d 8 GPIO_ACTIVE_HIGH>
         ;
 };
+
+/ {
+  battery {
+    compatible = "zmk,battery";
+    label = "BATTERY";
+    io-channels = <&adc 7>;
+  };
+};
+
+&adc {
+  status = "okay";
+
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  channel@7 {
+    reg = <7>;
+    zephyr,gain = "ADC_GAIN_1_6";
+    zephyr,reference = "ADC_REF_INTERNAL";
+    zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+    zephyr,resolution = <12>;
+    zephyr,input-positive = <NRF_SAADC_INPUT_AIN7>;
+  };
+};
