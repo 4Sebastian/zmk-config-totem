@@ -15,28 +15,3 @@
         , <&xiao_d 8 GPIO_ACTIVE_HIGH>
         ;
 };
-
-/ {
-    chosen {
-        zmk,battery = &xiao_battery_voltage_divider;
-    };
-};
-
-&adc {
-    status = "okay";
-};
-
-xiao_battery_voltage_divider: vbatt {
-    compatible = "zmk,battery-voltage-divider";
-    status = "okay";
-
-    label = "XIAO voltage divider";
-
-    io-channels = <&adc 7>;
-
-    output-ohms = <470000>;
-    full-ohms = <1470000>;
-
-    power-gpios = <&gpio0 14 (GPIO_ACTIVE_LOW)>;
-};
-
