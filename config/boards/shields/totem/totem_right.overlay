@@ -6,10 +6,6 @@
 
 #include "totem.dtsi"
 
-&uicr {
-        nfct-pins-as-gpios;
-};
-
 &default_transform {
     col-offset = <5>;
 };
