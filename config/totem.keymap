@@ -17,9 +17,9 @@
 // RGB LED Widget behaviors (from rgbled_adapter shield)
 #include <behaviors/rgbled_widget.dtsi>
 // These behaviors are available when using the rgbled_adapter shield:
-// - &ind_bat: Show battery level indicator
-// - &ind_con: Show connection status indicator  
-// - &ind_layer: Show layer indicator
+// - &ind_bat: Show battery level indicator (blinks once: green/yellow/red based on battery %)
+// - &ind_con: Show connection status indicator (blinks: blue=connected, yellow=advertising, red=disconnected)
+// - &ind_lyr: Show layer indicator (NOTE: it's ind_lyr, not ind_layer!)
 
 #define BASE 0
 #define NAV  1
